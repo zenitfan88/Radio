@@ -4,53 +4,52 @@ public class Radio {
     private int currentStation;
     private int currentVolume;
 
-    public void setNextCurrentStation(int currentStation) {
+
+    public void setCurrentStation(int currentStation) {
+        this.currentStation = currentStation;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
+    public void setNextCurrentStation() {
         if (currentStation >= 0 && currentStation < 9) {
-            this.currentStation = currentStation + 1;
-        }
-        currentStation = 0;
+            currentStation = currentStation + 1;
+        } else currentStation = 0;
     }
 
-    public int getNextCurrentStation() {
-        return currentStation;
-    }
-
-    public void setPrewCurrentStation(int currentStation) {
+    public void setPrewCurrentStation() {
         if (currentStation > 0 && currentStation <= 9) {
-            this.currentStation = currentStation - 1;
+            currentStation = currentStation - 1;
         }
         if (currentStation <= 0) {
-            this.currentStation = 9;
+            currentStation = 9;
         }
     }
 
-    public int getPrewCurrentStation() {
+    public void setNextCurrentVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume + 1;
+        }
+        if (currentVolume >= 10) {
+            currentVolume = 10;
+        }
+    }
+
+
+    public void setPrewCurrentVolume() {
+        if (currentVolume > 0 && currentVolume <= 10) {
+            currentVolume = currentVolume - 1;
+        } else currentVolume = 0;
+    }
+
+    public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setNextCurrentVolume(int currentVolume) {
-        if (currentVolume > 0) {
-            this.currentVolume = currentVolume + 1;
-        }
-        if (currentVolume >= 10) {
-            this.currentVolume = 10;
-        }
-    }
-
-    public int getNextCurrentVolume() {
+    public int getCurrentVolume() {
         return currentVolume;
     }
-
-    public void setPrewCurrentVolume(int currentVolume) {
-        if (currentVolume > 0 && currentVolume <= 10) {
-            this.currentVolume = currentVolume - 1;
-        }
-        currentVolume = 0;
-    }
-
-    public int getPrewCurrentVolume() {
-        return currentVolume;
-    }
-
 }
 
