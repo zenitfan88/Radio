@@ -38,10 +38,10 @@ public class RadioTest {
     @Test
     void prewCurrentStationOverNine() {
         Radio station = new Radio();
-        station.setCurrentStation(3);
+        station.setCurrentStation(1);
         station.setPrewCurrentStation();
         int actual = station.getCurrentStation();
-        int expected = 2;
+        int expected = 0;
         Assertions.assertEquals(expected, actual);
     }
 
