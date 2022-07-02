@@ -17,17 +17,17 @@ public class RadioTest {
         Assertions.assertEquals(39, station3.setNextCurrentVolume());
         Radio station4 = new Radio(0, 0);
         Assertions.assertEquals(14, station4.setPrewCurrentStation());
-        Radio station5 = new Radio(0, 12);
-        Assertions.assertEquals(11, station5.setPrewCurrentStation());
-        Radio station6 = new Radio(0, 2);
-        Assertions.assertEquals(3, station6.setNextCurrentStation());
+        Radio station5 = new Radio(0, 1);
+        Assertions.assertEquals(0, station5.setPrewCurrentStation());
+        Radio station6 = new Radio(0, 5);
+        Assertions.assertEquals(6, station6.setNextCurrentStation());
         Radio station7 = new Radio(0, 14);
         Assertions.assertEquals(0, station7.setNextCurrentStation());
         Radio station8 = new Radio(12);
         Assertions.assertEquals(12, station8.setAmountStation());
         Radio station9 = new Radio(0);
         Assertions.assertEquals(10, station9.setAmountStation());
-        Radio station10 = new Radio(0, 8);
-        Assertions.assertEquals(8, station10.setCurrentStation());
+        Radio station10 = new Radio(0, 7);
+        Assertions.assertEquals(7, station10.setCurrentStation());
     }
 }
