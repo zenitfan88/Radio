@@ -8,7 +8,7 @@ public class Radio {
     private int prewCurrentVolume;
     private int minCurrentVolume = 0;
     private int maxCurrentVolume = 100;
-    private int amountStation = 15;
+    private int amountStation;
 
 
     public Radio() {
@@ -40,17 +40,20 @@ public class Radio {
         return this.prewCurrentVolume = 0;
     }
 
-    public int setAmountStation() {
-        if (amountStation > 0) {
-            return this.amountStation = amountStation;
+    public int setAmountStation() { // задаем количество станций
+        if (amountStation != 0) { // если задано количество станций
+            this.amountStation = amountStation; // то используем заданное количество
         } else {
-            return this.amountStation = 10;
+            this.amountStation = 10; // если не задано, то используем по умолчанию
         }
+        return this.amountStation;
     }
 
-    public int setCurrentStation() {
-        this.currentStation = currentStation;
-        return this.currentStation;
+    public int setCurrentStation() { // выбираем станцию
+        if (currentStation >= setAmountStation()) { // если выбранная станция больше, чем количество
+            this.currentStation=setAmountStation()-1; // то выбирается последняя максимальная
+        }
+       return currentStation;
     }
 
     public int setNextCurrentStation() {
