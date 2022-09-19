@@ -12,6 +12,7 @@ public class Radio {
 
 
     public Radio() {
+        this.amountStation = 10;
     }
 
     public Radio(int amountStation) {
@@ -24,6 +25,12 @@ public class Radio {
         this.nextCurrentStation = currentStation + 1;
         this.prewCurrentStation = currentStation - 1;
         this.currentStation = currentStation;
+        if (amountStation == 0) {
+            this.amountStation = 10;
+        }
+        if (amountStation != 0) {
+            this.amountStation = amountStation;
+        }
     }
 
     public int setNextCurrentVolume() {
@@ -40,24 +47,14 @@ public class Radio {
         return this.prewCurrentVolume = 0;
     }
 
-    public int setAmountStation() { // задаем количество станций
-        if (amountStation != 0) { // если задано количество станций
-            this.amountStation = amountStation; // то используем заданное количество
-        } else {
-            this.amountStation = 10; // если не задано, то используем по умолчанию
+    public int setCurrentStation() {
+        if (currentStation >= this.amountStation) {
+            this.currentStation = amountStation - 1;
         }
-        return this.amountStation;
-    }
-
-    public int setCurrentStation() { // выбираем станцию
-        if (currentStation >= setAmountStation()) { // если выбранная станция больше, чем количество
-            this.currentStation=setAmountStation()-1; // то выбирается последняя максимальная
-        }
-       return currentStation;
+        return currentStation;
     }
 
     public int setNextCurrentStation() {
-        amountStation = setAmountStation() - 1;
         if (this.currentStation >= 0 && currentStation < this.amountStation) {
             return this.nextCurrentStation;
         }
@@ -65,11 +62,11 @@ public class Radio {
     }
 
     public int setPrewCurrentStation() {
-        amountStation = setAmountStation() - 1;
+        amountStation = amountStation - 1;
         if (currentStation > 0 && currentStation < this.amountStation) {
             return this.prewCurrentStation;
         }
-        return this.prewCurrentStation = this.amountStation;
+        return this.prewCurrentStation = amountStation;
     }
 }
 
