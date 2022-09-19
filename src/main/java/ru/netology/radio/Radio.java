@@ -12,7 +12,6 @@ public class Radio {
 
 
     public Radio() {
-        this.amountStation = 10;
     }
 
     public Radio(int amountStation) {
